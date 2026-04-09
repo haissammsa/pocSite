@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAISON MODE – Vêtements & Style</title>
+  <meta name="description" content="Découvrez les dernières collections de mode. Vêtements femme, homme et accessoires de qualité." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== NOTIFICATION BAR ===== -->
+  <div class="notif-bar" id="notifBar">
+    <p>🚚 Livraison gratuite dès 80 € d'achat &nbsp;|&nbsp; Retours gratuits sous 30 jours</p>
+    <button class="notif-close" id="notifClose" aria-label="Fermer">×</button>
+  </div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="mainHeader">
+    <div class="header-inner container">
+
+      <!-- Mobile menu toggle -->
+      <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <!-- Logo -->
+      <a href="index.html" class="logo">MAISON MODE</a>
+
+      <!-- Main nav -->
+      <nav class="nav" id="mainNav" aria-label="Navigation principale">
+        <ul class="nav-list">
+          <li><a href="#collections" class="nav-link">Collections</a></li>
+          <li><a href="#nouveautes" class="nav-link">Nouveautés</a></li>
+          <li class="has-dropdown">
+            <a href="#" class="nav-link" aria-haspopup="true">Catégories <span class="arrow">▾</span></a>
+            <ul class="dropdown">
+              <li><a href="#femme">Femme</a></li>
+              <li><a href="#homme">Homme</a></li>
+              <li><a href="#accessoires">Accessoires</a></li>
+              <li><a href="#soldes">Soldes</a></li>
+            </ul>
+          </li>
+          <li><a href="#about" class="nav-link">Notre marque</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header actions -->
+      <div class="header-actions">
+        <button class="icon-btn" id="searchToggle" aria-label="Rechercher">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+               width="20" height="20">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </button>
+        <button class="icon-btn" id="cartBtn" aria-label="Panier">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+               width="20" height="20">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+          <span class="cart-count" id="cartCount" aria-live="polite">0</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Search bar -->
+    <div class="search-bar" id="searchBar" aria-hidden="true">
+      <div class="container">
+        <form class="search-form" role="search" onsubmit="return false;">
+          <input type="search" id="searchInput" placeholder="Rechercher un article…" aria-label="Rechercher un article" />
+          <button type="submit" aria-label="Lancer la recherche">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" width="18" height="18">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </button>
+          <button type="button" id="searchClose" aria-label="Fermer la recherche">×</button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== CART DRAWER ===== -->
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Panier" aria-hidden="true">
+    <div class="cart-drawer-header">
+      <h2>Mon Panier</h2>
+      <button class="icon-btn" id="cartClose" aria-label="Fermer le panier">×</button>
+    </div>
+    <div class="cart-drawer-body" id="cartItems">
+      <p class="cart-empty">Votre panier est vide.</p>
+    </div>
+    <div class="cart-drawer-footer">
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cartTotal">0,00 €</span>
+      </div>
+      <button class="btn btn-primary btn-full" id="checkoutBtn">Commander</button>
+    </div>
+  </aside>
+  <div class="cart-overlay" id="cartOverlay"></div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero" aria-label="Bannière principale">
+    <div class="hero-slides">
+      <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80')">
+        <div class="hero-content container">
+          <span class="hero-tag">Nouvelle Collection</span>
+          <h1 class="hero-title">Printemps<br/>Été 2025</h1>
+          <p class="hero-subtitle">Découvrez les pièces incontournables de la saison</p>
+          <div class="hero-btns">
+            <a href="#nouveautes" class="btn btn-primary">Explorer la collection</a>
+            <a href="#about" class="btn btn-outline">Notre histoire</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1600&q=80')">
+        <div class="hero-content container">
+          <span class="hero-tag">Soldes</span>
+          <h1 class="hero-title">Jusqu'à<br/>-50 %</h1>
+          <p class="hero-subtitle">Sur une sélection de pièces femme et homme</p>
+          <div class="hero-btns">
+            <a href="#soldes" class="btn btn-primary">Voir les soldes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Slide controls -->
+    <button class="slide-btn slide-prev" id="slidePrev" aria-label="Diapositive précédente">&#8592;</button>
+    <button class="slide-btn slide-next" id="slideNext" aria-label="Diapositive suivante">&#8594;</button>
+    <div class="slide-dots" id="slideDots" aria-label="Indicateurs de diapositive"></div>
+  </section>
+
+  <!-- ===== COLLECTIONS ===== -->
+  <section class="collections section" id="collections" aria-label="Nos collections">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Nos collections</span>
+        <h2 class="section-title">Trouvez votre style</h2>
+      </div>
+      <div class="collections-grid">
+        <article class="collection-card collection-card--large" id="femme">
+          <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&q=80"
+               alt="Collection Femme – modèle portant une robe élégante" loading="lazy" />
+          <div class="collection-card-overlay">
+            <span class="collection-label">Femme</span>
+            <a href="#nouveautes" class="btn btn-light">Découvrir</a>
+          </div>
+        </article>
+        <article class="collection-card" id="homme">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80"
+               alt="Collection Homme – modèle en tenue casual" loading="lazy" />
+          <div class="collection-card-overlay">
+            <span class="collection-label">Homme</span>
+            <a href="#nouveautes" class="btn btn-light">Découvrir</a>
+          </div>
+        </article>
+        <article class="collection-card" id="accessoires">
+          <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80"
+               alt="Collection Accessoires – sacs et bijoux" loading="lazy" />
+          <div class="collection-card-overlay">
+            <span class="collection-label">Accessoires</span>
+            <a href="#nouveautes" class="btn btn-light">Découvrir</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NOUVEAUTÉS / PRODUCT GRID ===== -->
+  <section class="products section" id="nouveautes" aria-label="Nouveautés">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Nouveautés</span>
+        <h2 class="section-title">Dernières arrivées</h2>
+      </div>
+
+      <!-- Filters -->
+      <div class="filter-bar" role="group" aria-label="Filtrer les produits">
+        <button class="filter-btn active" data-filter="all">Tout</button>
+        <button class="filter-btn" data-filter="femme">Femme</button>
+        <button class="filter-btn" data-filter="homme">Homme</button>
+        <button class="filter-btn" data-filter="accessoires">Accessoires</button>
+      </div>
+
+      <!-- Product grid -->
+      <div class="products-grid" id="productsGrid">
+        <!-- Products injected by JS -->
+      </div>
+
+      <div class="section-footer">
+        <button class="btn btn-secondary" id="loadMore">Voir plus</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROMO BANNER ===== -->
+  <section class="promo-banner section" id="soldes" aria-label="Promotion">
+    <div class="container promo-inner">
+      <div class="promo-text">
+        <span class="section-tag">Offre spéciale</span>
+        <h2>Soldes d'été<br/><strong>jusqu'à -50 %</strong></h2>
+        <p>Sur une sélection de vêtements femme, homme et accessoires. Offre valable jusqu'au 31 août.</p>
+        <a href="#nouveautes" class="btn btn-primary">En profiter maintenant</a>
+      </div>
+      <div class="promo-image">
+        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&q=80"
+             alt="Soldes mode" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="about section" id="about" aria-label="Notre marque">
+    <div class="container about-inner">
+      <div class="about-images">
+        <img class="about-img about-img-main"
+             src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=700&q=80"
+             alt="Atelier de confection MAISON MODE" loading="lazy" />
+        <img class="about-img about-img-accent"
+             src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=400&q=80"
+             alt="Détail d'une pièce artisanale" loading="lazy" />
+      </div>
+      <div class="about-content">
+        <span class="section-tag">Notre histoire</span>
+        <h2 class="section-title">La mode comme art de vivre</h2>
+        <p>Fondée en 2015, MAISON MODE est née d'une passion pour la mode responsable et intemporelle.
+           Chaque pièce est soigneusement sélectionnée ou confectionnée dans le respect de l'environnement
+           et des artisans qui lui donnent vie.</p>
+        <p>Nous croyons que s'habiller bien, c'est se sentir bien – et que la qualité ne devrait jamais
+           compromettre l'éthique.</p>
+        <ul class="about-values">
+          <li>
+            <span class="value-icon">🌿</span>
+            <div>
+              <strong>Matières durables</strong>
+              <span>Coton bio, lin naturel, fibres recyclées</span>
+            </div>
+          </li>
+          <li>
+            <span class="value-icon">🤝</span>
+            <div>
+              <strong>Commerce équitable</strong>
+              <span>Partenaires certifiés en France et en Europe</span>
+            </div>
+          </li>
+          <li>
+            <span class="value-icon">✂️</span>
+            <div>
+              <strong>Savoir-faire artisanal</strong>
+              <span>Coupes étudiées pour chaque morphologie</span>
+            </div>
+          </li>
+        </ul>
+        <a href="#contact" class="btn btn-secondary">Nous contacter</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testimonials section" aria-label="Avis clients">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Avis clients</span>
+        <h2 class="section-title">Ce qu'ils en disent</h2>
+      </div>
+      <div class="testimonials-grid">
+        <article class="testimonial-card">
+          <div class="stars" aria-label="5 étoiles sur 5">★★★★★</div>
+          <p>"Qualité irréprochable et livraison ultra rapide. Je recommande les yeux fermés !"</p>
+          <footer>— Sophie M., Paris</footer>
+        </article>
+        <article class="testimonial-card">
+          <div class="stars" aria-label="5 étoiles sur 5">★★★★★</div>
+          <p>"Le pull en laine mérinos est une merveille. Chaud sans être lourd, coupe parfaite."</p>
+          <footer>— Théo R., Lyon</footer>
+        </article>
+        <article class="testimonial-card">
+          <div class="stars" aria-label="5 étoiles sur 5">★★★★★</div>
+          <p>"J'adore le fait que les vêtements soient éco-responsables. Le style et la conscience, enfin réunis."</p>
+          <footer>— Clara D., Bordeaux</footer>
+        </article>
+        <article class="testimonial-card">
+          <div class="stars" aria-label="4 étoiles sur 5">★★★★☆</div>
+          <p>"Très bonne expérience d'achat. Le service client répond vite et le retour a été sans souci."</p>
+          <footer>— Marc B., Nantes</footer>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NEWSLETTER ===== -->
+  <section class="newsletter section" aria-label="Inscription newsletter">
+    <div class="container newsletter-inner">
+      <div class="newsletter-text">
+        <h2>Restez dans la tendance</h2>
+        <p>Inscrivez-vous à notre newsletter et recevez -10 % sur votre première commande.</p>
+      </div>
+      <form class="newsletter-form" id="newsletterForm" novalidate>
+        <label for="newsletterEmail" class="sr-only">Adresse e-mail</label>
+        <input type="email" id="newsletterEmail" name="email"
+               placeholder="votre@email.com" required aria-required="true" />
+        <button type="submit" class="btn btn-primary">S'inscrire</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="contact" aria-label="Pied de page">
+    <div class="container footer-grid">
+
+      <div class="footer-brand">
+        <a href="index.html" class="logo">MAISON MODE</a>
+        <p>La mode responsable et intemporelle depuis 2015.</p>
+        <div class="social-links" aria-label="Réseaux sociaux">
+          <a href="#" aria-label="Instagram" class="social-link">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" width="20" height="20">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Facebook" class="social-link">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" width="20" height="20">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Pinterest" class="social-link">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" width="20" height="20">
+              <path d="M8 12a4 4 0 1 0 8 0 4 4 0 0 0-8 0"/><path d="M12 2a10 10 0 1 0 10 10"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3>Boutique</h3>
+        <ul>
+          <li><a href="#collections">Collections</a></li>
+          <li><a href="#nouveautes">Nouveautés</a></li>
+          <li><a href="#femme">Femme</a></li>
+          <li><a href="#homme">Homme</a></li>
+          <li><a href="#accessoires">Accessoires</a></li>
+          <li><a href="#soldes">Soldes</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Aide</h3>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Livraison & retours</a></li>
+          <li><a href="#">Guide des tailles</a></li>
+          <li><a href="#">Suivi de commande</a></li>
+          <li><a href="#">Programme fidélité</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <address>
+          <p>12 Rue de la Mode<br/>75001 Paris, France</p>
+          <p><a href="mailto:bonjour@maisonmode.fr">bonjour@maisonmode.fr</a></p>
+          <p><a href="tel:+33102030405">+33 1 02 03 04 05</a></p>
+          <p>Lun–Sam : 10h–19h</p>
+        </address>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>© 2025 MAISON MODE. Tous droits réservés.</p>
+        <div class="footer-legal">
+          <a href="#">Mentions légales</a>
+          <a href="#">Politique de confidentialité</a>
+          <a href="#">CGV</a>
+        </div>
+        <div class="payment-icons" aria-label="Moyens de paiement acceptés">
+          <span class="payment-icon" title="Visa">VISA</span>
+          <span class="payment-icon" title="Mastercard">MC</span>
+          <span class="payment-icon" title="PayPal">PayPal</span>
+          <span class="payment-icon" title="Apple Pay">Apple Pay</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" aria-label="Retour en haut">↑</button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
